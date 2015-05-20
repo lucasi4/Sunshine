@@ -6,16 +6,16 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity {
+
+public class DetailActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
+        setContentView(R.layout.activity_detail);
+        if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ForecastFragment())
-                    .commit();
+                    .add(R.id.detail_fragment, new DetailActivityFragment()).commit();
         }
     }
 
@@ -23,9 +23,8 @@ public class MainActivity extends FragmentActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
-
     }
 
     @Override
@@ -44,6 +43,4 @@ public class MainActivity extends FragmentActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }
